@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS chop_it_up;
+
+CREATE DATABASE chop_it_up;
