@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS chop_it_up;
+DROP DATABASE IF EXISTS chopitup_db;
 
-CREATE DATABASE chop_it_up;
+CREATE DATABASE chopitup_db;
