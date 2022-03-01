@@ -1,10 +1,7 @@
-const http = require('http').Server(app);
-var io = require('socket.io')(http);
-const path = require('path');
-
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -36,11 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
-
-// Socket.io requests are sent here
-io.on('connection', function(socket){
-
-});
 
 // "Normal" HTTP requests are handled using Express.js and other middleware
 sequelize.sync({ force: false }).then(() => {
