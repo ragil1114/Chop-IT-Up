@@ -50,6 +50,10 @@ io.on('connection', (socket) => {
     console.log('message: ' + msg);
   });
 
+  socket.on('chat message', (msg) => {    
+    io.emit('chat message', msg);  
+  });
+
 });
 
 // "Normal" HTTP requests are handled using Express.js and other middleware
