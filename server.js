@@ -1,14 +1,16 @@
+const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const path = require('path');
-const http = require('http');
 
 const app = express();
+const PORT = process.env.PORT || 3001;
+
+const http = require('http');
 const server = http.createServer(app);
+
 const { Server } = require("socket.io");
 const io = new Server(server);
-const PORT = process.env.PORT || 3001;
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -58,7 +60,5 @@ io.on('connection', (socket) => {
 
 // "Normal" HTTP requests are handled using Express.js and other middleware
 sequelize.sync({ force: false }).then(() => {
-
-  server.listen(PORT, () => console.log('Now listening'));
-
+  app.listen(PORT, () => console.log('Now listening'));
 });

@@ -1,0 +1,13 @@
+
+<div>
+    <ul id="messages">
+        {{#each this}}
+        <li>
+            {{> messages this}}
+        </li>
+        {{/each}}
+    </ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+</div>
