@@ -37,6 +37,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
 
+io.on('connection', (socket) => {  
+  
+  console.log('a user connected');
+
+  socket.on('disconnect', () => {    
+    console.log('user disconnected');  
+  });
+
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+  });
+
+});
+
+// "Normal" HTTP requests are handled using Express.js and other middleware
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

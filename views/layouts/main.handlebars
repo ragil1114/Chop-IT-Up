@@ -34,6 +34,25 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>  
+    var socket = io();
+
+    // Replace the Id with whatever you've named the form field and input fields for the chat element of our homepage.
+    var form = document.getElementById('form');  
+    var input = document.getElementById('input');
+
+    form.addEventListener('submit', function(e) {    
+      e.preventDefault();    
+      if (input.value) {      
+        socket.emit('chat message', input.value);      
+        input.value = '';
+      }  
+    });
+  </script>
+  
 </body>
 
 </html>
