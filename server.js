@@ -46,6 +46,10 @@ io.on('connection', (socket) => {
     console.log('user disconnected');  
   });
 
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+  });
+
 });
 
 // "Normal" HTTP requests are handled using Express.js and other middleware
