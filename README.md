@@ -54,5 +54,5 @@ https://ragil1114.github.io/Chop-IT-Up/
 
 ## Screenshots
 ![demo](https://github.com/ragil1114/Chop-IT-Up/blob/main/public/images/demo.png)
-![demo2](https://github.com/ragil1114/Chop-IT-Up/blob/public/images/demo2.png)
-![demo3](https://github.com/ragil1114/Chop-IT-Up/blob/public/images/demo3.png)
+![demo2](https://github.com/ragil1114/Chop-IT-Up/blob/main/public/images/demo2.png)
+![demo3](https://github.com/ragil1114/Chop-IT-Up/blob/main/public/images/demo3.png)
