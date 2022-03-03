@@ -21,6 +21,7 @@ Is a social media app that allows users to find & add friends, comment/vote on o
 - Sequelize
 - MVC
 - Handlebars.js
+- Socket.io
 - HTML
 - CSS
 - JavaScript
