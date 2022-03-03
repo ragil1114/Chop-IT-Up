@@ -99,6 +99,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
+// Chatbox Route
 router.get('/chatbox', (req, res) => {
   res.render('chatbox');
 });

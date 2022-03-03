@@ -16,7 +16,7 @@
 
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages > li { padding: 0.5rem 1rem; }
-      #messages > li:nth-child(odd) { background: #efefef; }
+      #messages > li:nth-child(odd) { background: blue; }
     </style>
 </head>
 
@@ -28,9 +28,9 @@
       </h1>
       <nav>
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
+        <a href="/chatbox">Chat</a>
+        <a href="/dashboard">Post</a>
         <button id="logout" class="btn-no-style">logout</button>
-        <a href="/chatbox">chatCloud</a>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
