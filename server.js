@@ -50,6 +50,7 @@ io.on('connection', (socket) => {
 
   socket.on('chat message', (msg) => {
     console.log('message: ' + msg);
+
   });
 
   socket.on('chat message', (msg) => {    
@@ -60,5 +61,5 @@ io.on('connection', (socket) => {
 
 // "Normal" HTTP requests are handled using Express.js and other middleware
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  server.listen(PORT, () => console.log('Now listening'));
 });
