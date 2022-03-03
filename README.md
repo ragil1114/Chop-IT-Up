@@ -48,8 +48,10 @@ Is a social media app that allows users to find & add friends, comment/vote on o
 https://github.com/ragil1114/Chop-IT-Up.git
 - Heroku: 
 https://chop-it-up.herokuapp.com/
-https://git.heroku.com/chop-it-up.git
 - URL: 
 https://ragil1114.github.io/Chop-IT-Up/
 
 ## Screenshots
+![demo](https://github.com/ragil1114/Chop-IT-Up/blob/public/assets/images/demo.png)
+![demo2](https://github.com/ragil1114/Chop-IT-Up/blob/public/assets/images/demo2.png)
+![demo3](https://github.com/ragil1114/Chop-IT-Up/blob/public/assets/images/demo3.png)
