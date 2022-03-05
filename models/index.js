@@ -65,4 +65,8 @@ Post.hasMany(Comment, {
   foreignKey: 'post_id'
 });
 
+// Relationships between new Messages model and User model should go somewhere in here.
+// We need the Messages model to have an ID, contain a string (the msg sent), and tie itself to the user that sent it.
+// Don't forget to export it with everything else when you're done!
+
 module.exports = { User, Post, Vote, Comment };

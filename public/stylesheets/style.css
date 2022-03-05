@@ -9,7 +9,7 @@ body, html {
     font-family: sans-serif;
     color: #333;
 }
-  
+
 a {
     text-decoration: none;
     color: #225ca3;
@@ -72,7 +72,7 @@ form label {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background-color: yellow;
+    background-color: rgb(255, 255, 255);
 }
 
 header {
