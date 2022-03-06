@@ -3,6 +3,7 @@ const Post = require('./Post');
 const User = require('./User');
 const Vote = require('./Vote');
 const Comment = require('./Comment');
+const Chatbox = require('./Chatbox');
 
 // create associations
 User.hasMany(Post, {
@@ -69,4 +70,4 @@ Post.hasMany(Comment, {
 // We need the Messages model to have an ID, contain a string (the msg sent), and tie itself to the user that sent it.
 // Don't forget to export it with everything else when you're done!
 
-module.exports = { User, Post, Vote, Comment };
+module.exports = { User, Post, Vote, Comment, Chatbox };

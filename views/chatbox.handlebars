@@ -1,47 +1,65 @@
 <div>
-    <ul id="messages">
-        {{#each this}}
-        <li>
-            {{> messages this}}
-        </li>
-        {{/each}}
-    </ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
+  <ul id="messages">
+    {{#each this}}
+    <li>
+        {{> messages this}}
+    </li>
+    {{/each}}
+  </ul>
+  <form id="form" action="">
+    <input id="input" autocomplete="off" /><button>Send</button>
+  </form>
 
-    <!--> activate script so that socket.io may function <!-->
+	<!--> activate script so that socket.io may function <!-->
 
-    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity=
+	"sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" 
+	crossorigin="anonymous">
+	</script>
     
-    <script>  
+  <script>  
+    // Initialize a socket (aka the event defined in server.js) and set it to
+		// turn socket.io ON (see server.js for what this means)
+    var socket = io();
+    // Replace the Id with whatever you've named the form field and input 
+		// fields for the chat element of our homepage. (if necessary)
+    var messages = document.getElementById('messages');
+    var form = document.getElementById('form');  
+    var input = document.getElementById('input');
+		
+    	form.addEventListener('submit', function(e) {    
+    	e.preventDefault();    
+    	if (input.value) {      
+    	    socket.emit('chat message', input.value);      
+    	    input.value = '';
+    	}  
+    	});
 
-        // Initialize a socket (aka the event defined in server.js) and set it to turn socket.io ON (see server.js for what this means)
-        var socket = io();
+      // The elements being created may need to be adjusted based on our needs!
+      // This basically just handles the printing of chat messages.
+      socket.on('chat message', function(msg) {
+        var item = document.createElement('li');    
+        item.textContent = msg;    
+        messages.appendChild(item);    
+        window.scrollTo(0, document.body.scrollHeight);  
+// Somewhere in here you'll need to provide instructions for socket.io to write
+// the contents of a msg to its corresponding model.
+				// console logs the chatbox id (the message id), chat_text, user_id,
+				// and updatedAt and createdAt.
+        console.log("message", msg);
+          fetch('/api/chatbox', { 
+            method: 'POST',
+            headers: {
+             'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ chat_text: msg })
+          })
+          .then(response => response.json())
+          .then(data => console.log(data));
+      });
 
-        // Replace the Id with whatever you've named the form field and input fields for the chat element of our homepage. (if necessary)
-        var messages = document.getElementById('messages');
-        var form = document.getElementById('form');  
-        var input = document.getElementById('input');
 
-        form.addEventListener('submit', function(e) {    
-        e.preventDefault();    
-        if (input.value) {      
-            socket.emit('chat message', input.value);      
-            input.value = '';
-        }  
-        });
+  
 
-        // The elements being created may need to be adjusted based on our needs!
-        // This basically just handles the printing of chat messages.
-        socket.on('chat message', function(msg) {    
-            var item = document.createElement('li');    
-            item.textContent = msg;    
-            messages.appendChild(item);    
-            window.scrollTo(0, document.body.scrollHeight);  
-        });
-
-        // Somewhere in here you'll need to provide instructions for socket.io to write the contents of a msg to its corresponding model.
-
-    </script>
+  </script>
 </div>
