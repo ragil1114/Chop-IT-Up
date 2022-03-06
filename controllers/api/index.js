@@ -3,12 +3,12 @@ const router = require('express').Router();
 const userRoutes = require('./user-routes.js');
 const postRoutes = require('./post-routes');
 const commentRoutes = require('./comment-routes');
-const chatboxRoutes = require('./chatbox-routes');
+//const chatboxRoutes = require('./chatbox-routes');
 
 // Middleware
 router.use('/users', userRoutes);
 router.use('/posts', postRoutes);
 router.use('/comments', commentRoutes);
-router.use('/chatbox', chatboxRoutes);
+//router.use('/chatbox', chatboxRoutes);
 
 module.exports = router;
